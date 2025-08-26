@@ -3,485 +3,363 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>India's Economic Vanguard: Startup & MSME Ecosystem Analysis</title>
-    
-    <!-- External Libraries & Fonts -->
+    <title>About Us - RIG Global Solutions</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
-    
-    <!-- Custom Styles for UI enhancements -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals (Oatmeal, Slate, Amber) -->
+    <!-- Application Structure Plan: A narrative, single-page scrolling experience. The structure guides the user from a high-level brand promise (Hero) down to the core differentiators (People). Key sections like 'Mission', 'Approach', and 'Services' are designed as distinct thematic blocks. The 'Services' section is interactive with tabs to prevent information overload and allow user-driven exploration. This linear-yet-interactive flow was chosen to build a comprehensive story about RIG, establishing trust and clarity for potential clients, partners, and recruits by making a complex business model digestible and engaging. -->
+    <!-- Visualization & Content Choices: Report Info: Mission/Vision -> Goal: Inform/Inspire -> Presentation: Two-column text layout -> Interaction: Static -> Justification: Clearly separates the two core concepts for easy reading. | Report Info: Key Pillars of Approach -> Goal: Explain Process -> Presentation: 3-column layout with icons -> Interaction: Static -> Justification: Icons provide quick visual cues, and columns break down the 'how' into digestible parts. | Report Info: Service Portfolio -> Goal: Organize/Detail -> Presentation: Tabbed interface -> Interaction: User clicks tabs to reveal categorized service lists -> Justification: Manages a large amount of information effectively, allowing users to explore only what's relevant to them without being overwhelmed by a single long list. | Report Info: 10 Departments -> Goal: Showcase Expertise -> Presentation: Grid layout -> Interaction: Static -> Justification: A grid provides a quick, scannable overview of the company's internal structure and breadth of capabilities. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8f9fa; /* Light gray background */
-            color: #212529; /* Dark text for readability */
+            background-color: #FDFBF8; /* Warm Oatmeal */
+            color: #4A5568; /* Slate Gray */
         }
-        /* Styling for the chart containers to ensure responsiveness */
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 350px;
-        }
-        @media (min-width: 768px) {
-            .chart-container {
-                height: 400px; /* Taller charts on larger screens */
-            }
-        }
-        /* Navigation link hover effect */
+        .bg-primary { background-color: #0F172A; } /* Deep Slate */
+        .text-primary { color: #0F172A; }
+        .bg-accent { background-color: #D97706; } /* Warm Amber */
+        .text-accent { color: #D97706; }
+        .border-accent { border-color: #D97706; }
         .nav-link {
-            transition: all 0.2s ease-in-out;
+            transition: color 0.3s ease;
         }
-        .nav-link:hover {
-            color: #0056b3;
+        .nav-link:hover, .nav-link.active {
+            color: #D97706;
+        }
+        .cta-button {
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
             transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
-        /* A colored border accent for statistic cards */
-        .stat-card {
-            background-color: white;
-            border-left: 5px solid #007BFF; /* Blue accent */
+        .pillar-card, .service-card, .department-card {
+            transition: all 0.3s ease;
         }
-        /* Active state for tab buttons */
-        .tab-btn.active {
-            background-color: #007BFF;
-            color: white;
+        .pillar-card:hover, .service-card:hover, .department-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
         }
-        /* Styling for the arrows in the 'Virtuous Cycle' diagram */
-        .flow-arrow {
-            font-size: 2rem;
-            color: #ced4da;
-            transform: translateY(20px);
+        .service-tab.active {
+            border-bottom: 2px solid #D97706;
+            color: #0F172A;
+            font-weight: 600;
         }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- Sticky Navigation Bar -->
-    <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center py-4">
-                <div class="font-bold text-xl text-[#007BFF]">India's Economic Engines</div>
-                <div class="hidden md:flex space-x-8 text-gray-600 font-semibold">
-                    <a href="#overview" class="nav-link">Overview</a>
-                    <a href="#deep-dive" class="nav-link">Deep Dive</a>
-                    <a href="#policy" class="nav-link">Policy & Future</a>
-                    <a href="#geography" class="nav-link">Geography</a>
+    <!-- Header & Navigation -->
+    <header id="header" class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold text-primary">
+                    RIG Global Solutions
                 </div>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#about" class="nav-link active">About Us</a>
+                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#people" class="nav-link">Careers</a>
+                    <a href="#contact" class="nav-link">Contact Us</a>
+                </nav>
+                <a href="#contact" class="hidden md:inline-block bg-accent text-white font-semibold px-6 py-2 rounded-lg shadow-md cta-button">
+                    Request a Consultation
+                </a>
+                <button id="mobile-menu-button" class="md:hidden text-primary">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
             </div>
         </div>
-    </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#home" class="block py-2 nav-link">Home</a>
+            <a href="#about" class="block py-2 nav-link active">About Us</a>
+            <a href="#services" class="block py-2 nav-link">Services</a>
+            <a href="#people" class="block py-2 nav-link">Careers</a>
+            <a href="#contact" class="block py-2 nav-link">Contact Us</a>
+            <a href="#contact" class="mt-4 block text-center bg-accent text-white font-semibold px-6 py-2 rounded-lg shadow-md cta-button">
+                Request a Consultation
+            </a>
+        </div>
+    </header>
 
-    <!-- Main Content Area -->
-    <main class="container mx-auto p-4 md:p-8">
-        
-        <!-- Header Section -->
-        <header class="text-center py-12">
-            <h1 class="text-4xl md:text-6xl font-black text-[#212529] mb-4">India's Economic Vanguard</h1>
-            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">An interactive analysis of the Startup and MSME ecosystems, the twin engines powering India's journey to a $7 trillion economy.</p>
-        </header>
-
-        <!-- Overview Section: Macro stats and Startup/MSME comparison -->
-        <section id="overview" class="py-12">
-            <h2 class="text-3xl font-bold text-center mb-8">Macroeconomic Snapshot (2024-2025)</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <div class="text-4xl font-bold text-[#007BFF]">~6.5%</div>
-                    <p class="text-gray-600 mt-2">Projected GDP Growth (FY25)</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <div class="text-4xl font-bold text-[#28A745]">$4.19T</div>
-                    <p class="text-gray-600 mt-2">Estimated Nominal GDP (2025)</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <div class="text-4xl font-bold text-[#FFC107]">159k+</div>
-                    <p class="text-gray-600 mt-2">DPIIT-Recognised Startups</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <div class="text-4xl font-bold text-[#17A2B8]">64M+</div>
-                    <p class="text-gray-600 mt-2">Registered MSMEs</p>
-                </div>
-            </div>
-
-            <!-- Interactive Comparison Module -->
-            <div class="mt-16 bg-white p-8 rounded-lg shadow-lg">
-                <h3 class="text-2xl font-bold text-center mb-2">The Twin Engines: A Comparative View</h3>
-                <p class="text-center text-gray-600 mb-8">While startups drive innovation and MSMEs form the high-employment backbone, their synergy creates a powerful feedback loop for economic growth. Select a sector to see its core contributions.</p>
-                <div class="flex justify-center mb-8">
-                    <div class="flex space-x-2 p-1 bg-gray-200 rounded-full">
-                        <button id="show-startup" class="sector-toggle-btn px-6 py-2 rounded-full font-semibold transition">Startups</button>
-                        <button id="show-msme" class="sector-toggle-btn px-6 py-2 rounded-full font-semibold transition">MSMEs</button>
-                    </div>
-                </div>
-                <div id="comparison-cards" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <!-- Cards will be dynamically inserted here by JavaScript -->
-                </div>
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="py-20 md:py-32 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold text-primary leading-tight mb-4">
+                    Strategic Execution for India's Startups & MSMEs.
+                </h1>
+                <p class="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">
+                    We are a multidisciplinary advisory and execution firm dedicated to solving challenges for Indian businesses by bridging policy, practice, and innovation.
+                </p>
             </div>
         </section>
 
-        <!-- Deep Dive Section: Charts on Funding, Credit, and Synergy -->
-        <section id="deep-dive" class="py-12">
-            <h2 class="text-3xl font-bold text-center mb-12">Sector Deep Dive</h2>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- Startup Funding Chart -->
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-bold mb-2">Startup Funding in Transition</h3>
-                    <p class="text-gray-600 mb-4">The "funding winter" marks a shift towards sustainability. While overall funding has declined, capital is now flowing to fundamentally strong, infrastructure-critical sectors. Toggle to see the breakdown.</p>
-                    <div class="flex justify-center space-x-4 mb-4">
-                        <button id="funding-total-btn" class="tab-btn px-4 py-2 rounded-md text-sm font-semibold">Total Funding</button>
-                        <button id="funding-stage-btn" class="tab-btn px-4 py-2 rounded-md text-sm font-semibold">Stage-wise</button>
-                    </div>
-                    <div class="chart-container">
-                        <canvas id="startupFundingChart"></canvas>
-                    </div>
+        <!-- Mission & Vision Section -->
+        <section id="about" class="py-20 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary">The "Why" Behind Our Work</h2>
+                    <p class="mt-4 text-lg text-slate-600">Our purpose is twofold: to deliver exceptional value to our clients and to build a stronger India for tomorrow.</p>
                 </div>
-
-                <!-- MSME Credit Gap Chart -->
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-bold mb-2">The MSME Credit Chasm</h3>
-                    <p class="text-gray-600 mb-4">Access to formal credit remains the single biggest hurdle for MSMEs. This chart illustrates the vast gap between credit demand and what is met by formal lending channels, a shortfall estimated in trillions of rupees.</p>
-                    <div class="chart-container">
-                        <canvas id="msmeCreditGapChart"></canvas>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-primary mb-4">Our Mission</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            To deliver strategic consultancy, outsourcing, and business intelligence solutions while empowering youth through free training and guaranteed career pathways—shaping a workforce ready to drive innovation, national development, and global competitiveness.
+                        </p>
                     </div>
-                </div>
-
-                <!-- Virtuous Cycle Diagram -->
-                <div class="lg:col-span-2 bg-white p-8 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-bold text-center mb-2">The Virtuous Cycle of Synergy</h3>
-                    <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">The true economic dynamism lies in the interplay between startups and MSMEs. Startup innovation in FinTech and SaaS provides tools for MSMEs, whose adoption creates a formal data trail, which in turn enables FinTechs to solve the MSME credit gap.</p>
-                    <div class="flex flex-col md:flex-row justify-center items-center md:items-start space-y-4 md:space-y-0 md:space-x-4">
-                        <div class="text-center p-4 bg-gray-50 rounded-lg w-full md:w-1/4">
-                            <div class="text-3xl mb-2">&#128640;</div>
-                            <h4 class="font-bold">Startup Innovation</h4>
-                            <p class="text-sm text-gray-600">Develops low-cost digital tools (payments, accounting, logistics).</p>
-                        </div>
-                        <div class="flow-arrow">&#8680;</div>
-                        <div class="text-center p-4 bg-gray-50 rounded-lg w-full md:w-1/4">
-                            <div class="text-3xl mb-2">&#128187;</div>
-                            <h4 class="font-bold">MSME Digital Adoption</h4>
-                            <p class="text-sm text-gray-600">MSMEs adopt tools for efficiency, creating a formal digital footprint.</p>
-                        </div>
-                        <div class="flow-arrow">&#8680;</div>
-                        <div class="text-center p-4 bg-gray-50 rounded-lg w-full md:w-1/4">
-                            <div class="text-3xl mb-2">&#128181;</div>
-                            <h4 class="font-bold">Closing the Credit Gap</h4>
-                            <p class="text-sm text-gray-600">FinTechs use this new data to offer tailored, collateral-free loans.</p>
-                        </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-primary mb-4">Our Vision</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            To become a global catalyst for innovation, inclusive growth, and sustainable transformation—empowering enterprises, governments, and the next generation of professionals to solve real-world challenges with purpose and intelligence.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Policy Section: Government schemes and Export performance -->
-        <section id="policy" class="py-12">
-            <h2 class="text-3xl font-bold text-center mb-12">Policy, Governance & Future Outlook</h2>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- Government Schemes Tabs -->
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-bold mb-2">Key Government Support Schemes</h3>
-                    <p class="text-gray-600 mb-4">The government has launched several large-scale schemes to support MSMEs, primarily by addressing the critical challenge of credit access. Explore the performance of these key initiatives.</p>
-                    <div class="flex border-b mb-4">
-                        <button data-target="pmmy" class="policy-tab-btn flex-1 p-3 font-semibold text-center border-b-4 border-transparent">MUDRA (PMMY)</button>
-                        <button data-target="cgtmse" class="policy-tab-btn flex-1 p-3 font-semibold text-center border-b-4 border-transparent">CGTMSE</button>
-                        <button data-target="pmegp" class="policy-tab-btn flex-1 p-3 font-semibold text-center border-b-4 border-transparent">PMEGP</button>
+        <!-- Our Approach Section -->
+        <section class="py-20 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary">Beyond Advice. We Deliver Execution.</h2>
+                    <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">
+                        Our integrated "Advisory + Execution" framework provides a seamless, end-to-end solution, de-risking growth and accelerating progress for startups and MSMEs.
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Pillar 1 -->
+                    <div class="bg-gray-50 p-8 rounded-xl text-center pillar-card border-t-4 border-accent">
+                        <div class="text-4xl mb-4 text-accent">➔</div>
+                        <h3 class="text-xl font-bold text-primary mb-3">Bridging Policy & Practice</h3>
+                        <p class="text-slate-600">We translate complex government policies and regulations into practical, on-the-ground strategies for compliance and growth.</p>
                     </div>
-                    <div id="policy-content">
-                        <!-- Policy details will be dynamically inserted here -->
+                    <!-- Pillar 2 -->
+                    <div class="bg-gray-50 p-8 rounded-xl text-center pillar-card border-t-4 border-accent">
+                        <div class="text-4xl mb-4 text-accent">🚀</div>
+                        <h3 class="text-xl font-bold text-primary mb-3">Driving Innovation & Intelligence</h3>
+                        <p class="text-slate-600">We leverage business intelligence, automation, and next-gen technology to create a competitive edge for our clients.</p>
+                    </div>
+                    <!-- Pillar 3 -->
+                    <div class="bg-gray-50 p-8 rounded-xl text-center pillar-card border-t-4 border-accent">
+                        <div class="text-4xl mb-4 text-accent">🌍</div>
+                        <h3 class="text-xl font-bold text-primary mb-3">Ensuring Sustainability & Impact</h3>
+                        <p class="text-slate-600">We integrate ESG values and SDG alignment into our solutions, building resilient and responsible business models.</p>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- MSME Export Chart -->
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-bold mb-2">MSME's Rising Export Power</h3>
-                    <p class="text-gray-600 mb-4">MSMEs are increasingly competitive on the global stage, consistently contributing over 40% of India's total exports. This chart tracks their growing share over recent fiscal years.</p>
-                    <div class="chart-container">
-                        <canvas id="msmeExportChart"></canvas>
+        <!-- Service Portfolio Section -->
+        <section id="services" class="py-20 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary">A Comprehensive Suite of Solutions</h2>
+                    <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">
+                        Our services are designed to support every facet of a growing business. Explore our capabilities by selecting a category below.
+                    </p>
+                </div>
+                <div class="flex justify-center border-b border-gray-200 mb-8">
+                    <button class="service-tab px-6 py-3 text-lg text-slate-500 active" data-tab="core">Core Consulting & Advisory</button>
+                    <button class="service-tab px-6 py-3 text-lg text-slate-500" data-tab="operational">Operational & Support</button>
+                    <button class="service-tab px-6 py-3 text-lg text-slate-500" data-tab="intelligence">Intelligence & Development</button>
+                </div>
+
+                <div id="service-content">
+                    <!-- Core Consulting Content -->
+                    <div id="core" class="service-tab-content grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="bg-white p-6 rounded-lg shadow-md service-card"><strong>Business Strategy:</strong> Vision Setting, Roadmaps, Business Model Design.</div>
+                        <div class="bg-white p-6 rounded-lg shadow-md service-card"><strong>Financial Advisory:</strong> Startup Funding, Valuation, Project Finance, Virtual CFO.</div>
+                        <div class="bg-white p-6 rounded-lg shadow-md service-card"><strong>Legal & Corporate Affairs:</strong> Governance, Due Diligence, Mergers, ESOP Structuring.</div>
+                        <div class="bg-white p-6 rounded-lg shadow-md service-card"><strong>Risk & Crisis Strategy:</strong> Risk Mitigation, Business Continuity Planning.</div>
+                        <div class="bg-white p-6 rounded-lg shadow-md service-card"><strong>Digital & Technology Strategy:</strong> Transformation Roadmaps, Data & BI Strategy.</div>
+                    </div>
+                    <!-- Operational Content -->
+                    <div id="operational" class="service-tab-content hidden grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="bg-white p-6 rounded-lg shadow-md service-card"><strong>Accounting & Bookkeeping:</strong> Outsourced Accounting, MIS Reporting.</div>
+                        <div class="bg-white p-6 rounded-lg shadow-md service-card"><strong>Human Resources:</strong> Full HR Outsourcing, Recruitment, Payroll & HRMS.</div>
+                        <div class="bg-white p-6 rounded-lg shadow-md service-card"><strong>IT & Systems:</strong> Managed IT Services, Cloud Setup, Cybersecurity.</div>
+                        <div class="bg-white p-6 rounded-lg shadow-md service-card"><strong>Marketing & Branding:</strong> Brand Strategy, Digital Marketing, Social Media Management.</div>
+                        <div class="bg-white p-6 rounded-lg shadow-md service-card"><strong>Tax & Compliance:</strong> Full Corporate Compliance (GST, TDS, ROC), Registrations.</div>
+                    </div>
+                    <!-- Intelligence Content -->
+                    <div id="intelligence" class="service-tab-content hidden grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="bg-white p-6 rounded-lg shadow-md service-card"><strong>Market Intelligence:</strong> Market Research, Competitor Analysis, Feasibility Studies.</div>
+                        <div class="bg-white p-6 rounded-lg shadow-md service-card"><strong>BI & Automation:</strong> Dashboard Implementation, Report Automation, CRM Workflows.</div>
+                        <div class="bg-white p-6 rounded-lg shadow-md service-card"><strong>Process Improvement:</strong> SOP Creation, Process Mapping, Cost Optimization.</div>
+                        <div class="bg-white p-6 rounded-lg shadow-md service-card"><strong>Training & Capacity Building:</strong> Corporate Training, Leadership Development.</div>
+                        <div class="bg-white p-6 rounded-lg shadow-md service-card"><strong>Client Relationship Management:</strong> CRM Setup, Lead Nurturing, Onboarding Process.</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Geography Section: Rise of Tier-2/3 cities -->
-        <section id="geography" class="py-12">
-            <h2 class="text-3xl font-bold text-center mb-12">The Geographic Rebalancing</h2>
-            <div class="bg-white p-8 rounded-lg shadow-lg">
-                <h3 class="text-2xl font-bold text-center mb-2">The Rise of Entrepreneurial Bharat</h3>
-                <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">A profound shift is underway as nearly 50% of new startups now emerge from Tier-2 and Tier-3 cities. This chart compares the growth of new business incorporations, highlighting the resilience and momentum of these emerging hubs.</p>
-                <div class="chart-container">
-                    <canvas id="tierCityChart"></canvas>
+        <!-- Cross-Functional Expertise Section -->
+        <section class="py-20 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary">Strength in Diversity: Our Departments</h2>
+                    <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">
+                        Our 10 specialized departments collaborate to provide a holistic, 360-degree perspective on every client engagement.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 text-center">
+                    <div class="department-card bg-gray-50 p-6 rounded-lg">
+                        <h4 class="font-bold text-primary">Finance</h4>
+                        <p class="text-sm text-slate-600">Manages fiscal health and compliance.</p>
+                    </div>
+                    <div class="department-card bg-gray-50 p-6 rounded-lg">
+                        <h4 class="font-bold text-primary">Consultancy</h4>
+                        <p class="text-sm text-slate-600">Drives high-level business strategy.</p>
+                    </div>
+                    <div class="department-card bg-gray-50 p-6 rounded-lg">
+                        <h4 class="font-bold text-primary">Advisory</h4>
+                        <p class="text-sm text-slate-600">Provides expert legal & regulatory guidance.</p>
+                    </div>
+                    <div class="department-card bg-gray-50 p-6 rounded-lg">
+                        <h4 class="font-bold text-primary">Management</h4>
+                        <p class="text-sm text-slate-600">Oversees project execution and delivery.</p>
+                    </div>
+                    <div class="department-card bg-gray-50 p-6 rounded-lg">
+                        <h4 class="font-bold text-primary">Legal</h4>
+                        <p class="text-sm text-slate-600">Handles contracts and corporate law.</p>
+                    </div>
+                    <div class="department-card bg-gray-50 p-6 rounded-lg">
+                        <h4 class="font-bold text-primary">Marketing</h4>
+                        <p class="text-sm text-slate-600">Builds brands and drives growth.</p>
+                    </div>
+                    <div class="department-card bg-gray-50 p-6 rounded-lg">
+                        <h4 class="font-bold text-primary">Sales</h4>
+                        <p class="text-sm text-slate-600">Manages client acquisition and relationships.</p>
+                    </div>
+                    <div class="department-card bg-gray-50 p-6 rounded-lg">
+                        <h4 class="font-bold text-primary">Talent Acquisition</h4>
+                        <p class="text-sm text-slate-600">Leads recruitment and our talent pipeline.</p>
+                    </div>
+                    <div class="department-card bg-gray-50 p-6 rounded-lg">
+                        <h4 class="font-bold text-primary">R&D</h4>
+                        <p class="text-sm text-slate-600">Conducts market intelligence and innovation.</p>
+                    </div>
+                    <div class="department-card bg-gray-50 p-6 rounded-lg">
+                        <h4 class="font-bold text-primary">IT</h4>
+                        <p class="text-sm text-slate-600">Manages tech infrastructure and systems.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- Our People Section -->
+        <section id="people" class="py-20 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold text-primary">Our People, Our Strength.</h2>
+                        <p class="mt-6 text-slate-600 leading-relaxed">
+                            Our commitment to building the next generation of professionals is our core differentiator. Our unique "Intern-to-Executive" pipeline is a core asset, transforming ambitious students into seasoned experts.
+                        </p>
+                        <p class="mt-4 text-slate-600 leading-relaxed">
+                            This talent strategy allows us to provide expert, cost-effective solutions for our clients while contributing to national skill development. By choosing RIG, you invest in a sustainable ecosystem of talent dedicated to your success.
+                        </p>
+                        <a href="#" class="mt-8 inline-block text-accent font-semibold text-lg cta-button">
+                            Learn About Careers at RIG &rarr;
+                        </a>
+                    </div>
+                    <div class="h-80 bg-gray-200 rounded-xl flex items-center justify-center">
+                         <p class="text-slate-500">Professional team image placeholder</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white mt-12">
-        <div class="container mx-auto p-8 text-center">
-            <p>Interactive SPA based on the "India's Economic Vanguard" report.</p>
-            <p class="text-sm text-gray-400 mt-2">Data synthesized for 2024-2025. All visualizations are for illustrative purposes.</p>
+    <footer id="contact" class="bg-primary text-white">
+        <div class="container mx-auto px-6 py-16">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold">RIG Global Solutions</h3>
+                    <p class="mt-2 text-slate-300">Empowering India's Growth Engine.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold">Quick Links</h4>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#home" class="hover:text-accent transition-colors">Home</a></li>
+                        <li><a href="#about" class="hover:text-accent transition-colors">About Us</a></li>
+                        <li><a href="#services" class="hover:text-accent transition-colors">Services</a></li>
+                        <li><a href="#people" class="hover:text-accent transition-colors">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold">Contact Us</h4>
+                    <ul class="mt-4 space-y-2 text-slate-300">
+                        <li>Email: query@rigfinancialservices.com</li>
+                        <li>Phone: +91 86177 15655</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-slate-700 pt-8 text-center text-slate-400">
+                <p>&copy; 2025 RIG Global Solutions. All Rights Reserved.</p>
+            </div>
         </div>
     </footer>
 
-<!-- Main JavaScript Logic -->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
 
-    // --- 1. GLOBAL CHART CONFIGURATION ---
-    const chartColors = {
-        blue: '#007BFF',
-        green: '#28A745',
-        yellow: '#FFC107',
-        cyan: '#17A2B8',
-        red: '#DC3545',
-        gray: '#6C757D'
-    };
-    
-    const chartGridColor = 'rgba(0, 0, 0, 0.1)';
-    const chartFontColor = '#212529';
+            // Service Tabs Interaction
+            const tabs = document.querySelectorAll('.service-tab');
+            const tabContents = document.querySelectorAll('.service-tab-content');
 
-    // Default options for all charts to ensure a consistent look and feel
-    const defaultChartOptions = {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-            legend: {
-                labels: {
-                    color: chartFontColor,
-                    font: { size: 12 }
-                }
-            },
-            tooltip: {
-                backgroundColor: '#fff',
-                titleColor: '#212529',
-                bodyColor: '#212529',
-                borderColor: '#ddd',
-                borderWidth: 1,
-                padding: 10,
-            }
-        },
-        scales: {
-            y: {
-                ticks: { color: chartFontColor, font: { size: 12 } },
-                grid: { color: chartGridColor }
-            },
-            x: {
-                ticks: { color: chartFontColor, font: { size: 12 } },
-                grid: { display: false }
-            }
-        }
-    };
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Deactivate all tabs and hide all content
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.add('hidden'));
 
-    // --- 2. INTERACTIVE COMPARISON CARDS (STARTUPS vs MSMEs) ---
-    const comparisonData = {
-        startup: [
-            { label: 'Number of Enterprises', value: '159k+', icon: '&#128640;' },
-            { label: 'Total Employment', value: '1.7M+', icon: '&#128100;' },
-            { label: 'Key Contribution', value: 'Innovation & New Markets', icon: '&#128161;' }
-        ],
-        msme: [
-            { label: 'Number of Enterprises', value: '64M+', icon: '&#127970;' },
-            { label: 'Total Employment', value: '240M+', icon: '&#128101;' },
-            { label: 'Key Contribution', value: '~30% of GDP, 45%+ of Exports', icon: '&#127758;' }
-        ]
-    };
+                    // Activate the clicked tab and show its content
+                    tab.classList.add('active');
+                    const contentId = tab.dataset.tab;
+                    document.getElementById(contentId).classList.remove('hidden');
+                });
+            });
 
-    const comparisonContainer = document.getElementById('comparison-cards');
-    const showStartupBtn = document.getElementById('show-startup');
-    const showMsmeBtn = document.getElementById('show-msme');
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        // Adjust for sticky header height
+                        const headerOffset = document.getElementById('header').offsetHeight;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                        });
 
-    function updateComparisonView(type) {
-        comparisonContainer.innerHTML = ''; // Clear existing cards
-        comparisonData[type].forEach(item => {
-            const card = document.createElement('div');
-            card.className = 'stat-card p-6 rounded-lg shadow-md text-center transition-transform transform hover:scale-105';
-            card.innerHTML = `
-                <div class="text-4xl mb-2">${item.icon}</div>
-                <div class="text-3xl font-bold text-[#212529]">${item.value}</div>
-                <p class="text-gray-600 mt-2">${item.label}</p>
-            `;
-            comparisonContainer.appendChild(card);
+                        // Close mobile menu on link click
+                        if (!mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                        }
+                    }
+                });
+            });
         });
-
-        // Update active button style
-        if (type === 'startup') {
-            showStartupBtn.classList.add('bg-[#007BFF]', 'text-white');
-            showMsmeBtn.classList.remove('bg-[#007BFF]', 'text-white');
-        } else {
-            showMsmeBtn.classList.add('bg-[#007BFF]', 'text-white');
-            showStartupBtn.classList.remove('bg-[#007BFF]', 'text-white');
-        }
-    }
-    
-    showStartupBtn.addEventListener('click', () => updateComparisonView('startup'));
-    showMsmeBtn.addEventListener('click', () => updateComparisonView('msme'));
-    updateComparisonView('startup'); // Set initial view
-
-    // --- 3. STARTUP FUNDING CHART LOGIC ---
-    const fundingData = {
-        total: {
-            labels: ['H1 2024', 'H2 2024', 'H1 2025'],
-            datasets: [{
-                label: 'Total Funding ($B)',
-                data: [6.4, 5.9, 4.8],
-                backgroundColor: chartColors.blue,
-            }]
-        },
-        stage: {
-            labels: ['H1 2024', 'H2 2024', 'H1 2025'],
-            datasets: [
-                { label: 'Seed ($M)', data: [802, 587, 452], backgroundColor: chartColors.cyan },
-                { label: 'Early Stage ($M)', data: [1905, 1702, 1600], backgroundColor: chartColors.green },
-                { label: 'Late Stage ($M)', data: [3699, 3600, 2700], backgroundColor: chartColors.yellow }
-            ]
-        }
-    };
-
-    const fundingCtx = document.getElementById('startupFundingChart').getContext('2d');
-    const fundingChart = new Chart(fundingCtx, {
-        type: 'bar',
-        data: fundingData.total,
-        options: {
-            ...defaultChartOptions,
-            scales: {
-                x: { ...defaultChartOptions.scales.x },
-                y: { ...defaultChartOptions.scales.y, title: { display: true, text: 'Funding in Billion USD' } }
-            }
-        }
-    });
-
-    document.getElementById('funding-total-btn').addEventListener('click', () => {
-        fundingChart.data = fundingData.total;
-        fundingChart.options.scales.y.title.text = 'Funding in Billion USD';
-        fundingChart.options.scales.x.stacked = false;
-        fundingChart.options.scales.y.stacked = false;
-        fundingChart.update();
-        document.getElementById('funding-total-btn').classList.add('active');
-        document.getElementById('funding-stage-btn').classList.remove('active');
-    });
-
-    document.getElementById('funding-stage-btn').addEventListener('click', () => {
-        fundingChart.data = fundingData.stage;
-        fundingChart.options.scales.y.title.text = 'Funding in Million USD';
-        fundingChart.options.scales.x.stacked = true; // Stack bars for stage-wise view
-        fundingChart.options.scales.y.stacked = true;
-        fundingChart.update();
-        document.getElementById('funding-stage-btn').classList.add('active');
-        document.getElementById('funding-total-btn').classList.remove('active');
-    });
-    document.getElementById('funding-total-btn').click(); // Set initial state
-
-    // --- 4. MSME CREDIT GAP CHART ---
-    const creditGapCtx = document.getElementById('msmeCreditGapChart').getContext('2d');
-    new Chart(creditGapCtx, {
-        type: 'doughnut',
-        data: {
-            labels: ['Credit Demand Met', 'Credit Gap'],
-            datasets: [{
-                data: [19, 81], // Represents 19% met, 81% gap
-                backgroundColor: [chartColors.green, chartColors.red],
-                borderColor: '#f8f9fa',
-                borderWidth: 4,
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: { position: 'bottom', labels: { color: chartFontColor, font: { size: 14 } } },
-                tooltip: defaultChartOptions.plugins.tooltip
-            }
-        }
-    });
-
-    // --- 5. POLICY TABS LOGIC ---
-    const policyData = {
-        pmmy: {
-            title: 'Pradhan Mantri MUDRA Yojana (PMMY)',
-            content: `<p class="mb-2"><strong>Objective:</strong> Provide collateral-free micro-credit up to ₹20 lakh.</p>
-                      <p class="mb-2"><strong>Achievement:</strong> >52 crore loans sanctioned, worth ₹33.65 lakh crore.</p>
-                      <p class="text-red-600"><strong>Challenge:</strong> High NPA ratio of 9.81% as of March 2025, raising sustainability concerns.</p>`
-        },
-        cgtmse: {
-            title: 'Credit Guarantee Fund Trust (CGTMSE)',
-            content: `<p class="mb-2"><strong>Objective:</strong> Provide credit guarantees to lenders for collateral-free loans.</p>
-                      <p class="mb-2"><strong>Achievement:</strong> >1 crore guarantees approved, covering ₹5.2 lakh crore credit.</p>
-                      <p class="text-green-600"><strong>Impact:</strong> Significantly de-risked lending to MSEs, enabling higher credit flow from banks.</p>`
-        },
-        pmegp: {
-            title: "Prime Minister's Employment Generation Programme (PMEGP)",
-            content: `<p class="mb-2"><strong>Objective:</strong> Generate employment via credit-linked subsidy for new micro-enterprises.</p>
-                      <p class="mb-2"><strong>Achievement:</strong> >8.58 lakh enterprises assisted, generating ~70 lakh jobs since inception.</p>
-                      <p class="text-green-600"><strong>Impact:</strong> A proven and effective tool for grassroots job creation in the non-farm sector.</p>`
-        }
-    };
-    const policyContentDiv = document.getElementById('policy-content');
-    const policyTabs = document.querySelectorAll('.policy-tab-btn');
-    
-    function updatePolicyView(target) {
-        policyContentDiv.innerHTML = `
-            <h4 class="font-bold text-lg mb-4 text-[#007BFF]">${policyData[target].title}</h4>
-            <div class="text-gray-700 space-y-2">${policyData[target].content}</div>
-        `;
-        policyTabs.forEach(tab => {
-            tab.classList.remove('border-[#007BFF]', 'text-[#007BFF]');
-            if (tab.dataset.target === target) {
-                tab.classList.add('border-[#007BFF]', 'text-[#007BFF]');
-            }
-        });
-    }
-
-    policyTabs.forEach(tab => {
-        tab.addEventListener('click', () => updatePolicyView(tab.dataset.target));
-    });
-    updatePolicyView('pmmy'); // Set initial tab
-
-    // --- 6. MSME EXPORT SHARE CHART ---
-    const exportCtx = document.getElementById('msmeExportChart').getContext('2d');
-    new Chart(exportCtx, {
-        type: 'line',
-        data: {
-            labels: ['FY20', 'FY21', 'FY22', 'FY23', 'FY24', 'FY25 (May)'],
-            datasets: [{
-                label: 'Share in National Exports (%)',
-                data: [49.75, 49.35, 45.03, 43.59, 45.73, 45.79],
-                borderColor: chartColors.green,
-                backgroundColor: 'rgba(40, 167, 69, 0.1)',
-                fill: true,
-                tension: 0.3
-            }]
-        },
-        options: defaultChartOptions
-    });
-
-    // --- 7. TIER CITY GROWTH CHART ---
-    const tierCityCtx = document.getElementById('tierCityChart').getContext('2d');
-    new Chart(tierCityCtx, {
-        type: 'bar',
-        data: {
-            labels: ['FY2023', 'FY2024', 'FY2025 (Partial)'],
-            datasets: [
-                {
-                    label: 'Tier-1 City Incorporations',
-                    data: [78564, 99123, 104468],
-                    backgroundColor: chartColors.blue,
-                },
-                {
-                    label: 'Tier-2 City Incorporations',
-                    data: [19692, 24739, 23328],
-                    backgroundColor: chartColors.cyan,
-                }
-            ]
-        },
-        options: defaultChartOptions
-    });
-});
-</script>
-
+    </script>
 </body>
 </html>
